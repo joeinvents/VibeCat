@@ -1,0 +1,44 @@
+{
+  "name": "vibecat",
+  "version": "1.0.0",
+  "description": "A tray cat that pops up every minute holding a sign with a positive affirmation.",
+  "main": "src/main.js",
+  "bin": {
+    "vibecat": "bin/vibecat.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "assets/"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "release:patch": "npm version patch && npm publish && git push --follow-tags",
+    "release:minor": "npm version minor && npm publish && git push --follow-tags"
+  },
+  "keywords": [
+    "tray",
+    "affirmations",
+    "cat",
+    "overlay",
+    "electron"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeinvents/VibeCat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joeinvents/VibeCat/issues"
+  },
+  "homepage": "https://github.com/joeinvents/VibeCat#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "electron": "^39.8.10"
+  },
+  "allowScripts": {
+    "electron@39.8.10": true
+  }
+}

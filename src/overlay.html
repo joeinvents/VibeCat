@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'self'" />
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    user-select: none;
+    font-family: "Segoe UI", system-ui, sans-serif;
+  }
+
+  #card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    transform: translateY(110%);
+    opacity: 0;
+    transition: transform 650ms cubic-bezier(.22, 1, .36, 1), opacity 300ms ease;
+  }
+  #card.in {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  #sign {
+    position: relative;
+    width: 300px;
+    min-height: 96px;
+    box-sizing: border-box;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #fffaf1;
+    border: 3px solid #7a5c3e;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
+    font-size: 17px;
+    line-height: 1.35;
+    color: #3a2c1e;
+    animation: sway 4s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+  #sign::after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    width: 14px;
+    height: 16px;
+    margin-left: -7px;
+    background: #7a5c3e;
+    border-radius: 2px;
+  }
+
+  #cat {
+    width: 190px;
+    margin-top: 10px;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .2));
+    animation: bob 3s ease-in-out infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-1.2deg); }
+    50%      { transform: rotate(1.2deg); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-4px); }
+  }
+</style>
+</head>
+<body>
+  <div id="card">
+    <div id="sign"><span id="text"></span></div>
+
+    <svg id="cat" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#3a2c1e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- tail -->
+        <path d="M148 108c22 4 30-12 22-24-5-8-16-6-16 3" fill="#f6b26b" />
+        <!-- body -->
+        <path d="M58 128c-6-30 12-52 42-52s48 22 42 52z" fill="#f6b26b" />
+        <!-- ears -->
+        <path d="M70 60 66 32l24 14z" fill="#f6b26b" />
+        <path d="M130 60l4-28-24 14z" fill="#f6b26b" />
+        <!-- head -->
+        <ellipse cx="100" cy="72" rx="36" ry="30" fill="#f6b26b" />
+        <!-- happy closed eyes -->
+        <path d="M83 68c3-4 7-4 10 0" fill="none" />
+        <path d="M107 68c3-4 7-4 10 0" fill="none" />
+        <!-- nose + smile -->
+        <path d="M96 79h8l-4 4z" fill="#e08b8b" stroke-width="3" />
+        <path d="M100 83c0 4-5 6-8 3" fill="none" stroke-width="3" />
+        <path d="M100 83c0 4 5 6 8 3" fill="none" stroke-width="3" />
+        <!-- whiskers -->
+        <path d="M64 74h14M64 82l14-3M136 74h-14M136 82l-14-3" stroke-width="2.5" />
+      </g>
+      <ellipse cx="78" cy="80" rx="7" ry="4" fill="#f09a9a" opacity=".55" />
+      <ellipse cx="122" cy="80" rx="7" ry="4" fill="#f09a9a" opacity=".55" />
+    </svg>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
