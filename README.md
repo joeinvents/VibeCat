@@ -55,6 +55,22 @@ Constants at the top of [`src/main.js`](src/main.js):
 | `WIDTH` / `HEIGHT` | Overlay size |
 | `MARGIN` | Gap from the screen corner |
 
+## Releasing
+
+CI (`.github/workflows/ci.yml`) runs on every push/PR: installs on Ubuntu/Windows/macOS across
+Node 18 and 20, checks JS syntax, and dry-runs `npm pack`.
+
+Publishing to npm (`.github/workflows/publish.yml`) happens when a **GitHub Release** is published,
+using the `NPM_TOKEN` repo secret. It refuses to publish if the release tag doesn't match
+`package.json`'s version. To cut a release:
+
+```bash
+npm run release:patch   # or release:minor — bumps version, commits, tags, pushes
+gh release create v$(node -p "require('./package.json').version") --generate-notes
+```
+
+(or create the release from the tag in the GitHub UI instead of `gh release create`).
+
 ## License
 
 [MIT](LICENSE). It's a cat with a sign.
