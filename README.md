@@ -13,6 +13,11 @@ Have a **pawsome** day :3
 
 ## Install + run
 
+Windows: grab the installer from the [latest release](https://github.com/joeinvents/VibeCat/releases/latest)
+— no Node.js required.
+
+Or via npm:
+
 ```bash
 npm install -g vibecat
 vibecat

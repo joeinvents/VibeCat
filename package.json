@@ -32,11 +32,12 @@
     "url": "https://github.com/joeinvents/VibeCat/issues"
   },
   "homepage": "https://github.com/joeinvents/VibeCat#readme",
+  "author": "joeinvents",
   "license": "MIT",
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {
+  "optionalDependencies": {
     "electron": "^39.8.10"
   },
   "allowScripts": {
@@ -49,6 +50,7 @@
     "appId": "com.joeinvents.vibecat",
     "productName": "VibeCat",
     "icon": "assets/icon.png",
+    "publish": null,
     "directories": {
       "output": "dist"
     },
