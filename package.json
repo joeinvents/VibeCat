@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "start": "electron .",
+    "dist": "electron-builder --win",
     "release:patch": "npm version patch && git push --follow-tags",
     "release:minor": "npm version minor && git push --follow-tags"
   },
@@ -40,5 +41,29 @@
   },
   "allowScripts": {
     "electron@39.8.10": true
+  },
+  "devDependencies": {
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.joeinvents.vibecat",
+    "productName": "VibeCat",
+    "icon": "assets/icon.png",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "bin/",
+      "src/",
+      "assets/",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
